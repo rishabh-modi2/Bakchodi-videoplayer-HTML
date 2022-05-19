@@ -14,9 +14,24 @@
       <h4  align="center">Video Player</h4>
     </div>
     <div class="row">
-      <form action="/v/">
+      <form action="/video/">
         <div class="col-md-9">
           <div class="form-group">
+            <input type="url" name="url" required
+            placeholder="http:// " class="form-control">
+          </div>
+          </div> <div class="col-md-3">
+          <div class="form-group">
+            <button class="btn btn-block btn-lg btn-info">Input</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="row">
+      <form action="/rvideo/">
+        <div class="col-md-9">
+          <div class="form-group">
+            <p> Input hls url </p>
             <input type="url" name="url" required
             placeholder="http:// " class="form-control">
           </div>

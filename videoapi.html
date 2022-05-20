@@ -1,0 +1,9 @@
+<video id="vid1" src="vid" width=100% height=100% controls preload='full'></video>
+<script>
+    var url_string = window.location.href; //window.location.href
+    var url = new URL(url_string);
+    var c = url.searchParams.get("url");
+    console.log(c)
+    c1 = 'https://video-api-production.up.railway.app/api/play?url=' + c
+    document.getElementById("vid1").src = c1;
+</script>

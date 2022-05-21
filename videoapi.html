@@ -1,9 +1,11 @@
-<video id="vid1" src="vid" width=100% height=100% controls preload='auto' onclick="this.play()"></video>
+<video id="vid1" src="vid" width=100% height=100% controls preload='auto' poster="pos" onclick="this.play()"></video>
 <script>
     var url_string = window.location.href; //window.location.href
     var url = new URL(url_string);
-    var c = url.searchParams.get("url");
+    var c2 = url.searchParams.get("url");
     console.log(c)
-    c1 = 'https://video-api-production.up.railway.app/api/play?url=' + c
+    c1 = 'https://video-api-production.up.railway.app/api/play?url=https://www.youtube.com/watch?v=' + c
+    p1 = 'https://i.ytimg.com/vi/' + c + '/hqdefault.jpg'
     document.getElementById("vid1").src = c1;
+    document.getElementById("vid1").poster = c1
 </script>

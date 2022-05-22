@@ -1,0 +1,11 @@
+<video id="vid1" src="vid" width=100% height=100% preload='none' poster="post" controls></video>
+<script>
+    var url_string = window.location.href; //window.location.href
+    var url = new URL(url_string);
+    var c = url.searchParams.get("url");
+    c1 = "https://drive.google.com/uc?export=view&id=" + c
+    c2 = "https://drive.google.com/thumbnail?id=" + c
+    console.log(c1)
+    document.getElementById("vid1").src = c1;
+    document.getElementById("vid1").poster = c2;
+</script>

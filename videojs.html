@@ -14,7 +14,7 @@
     preload="metadata"
     data-setup="{}"
   >
-    <source src="https://drive.google.com/uc?export=view&id=1YY9o8kw31eiDRArivzXhGSern31YtrNn" type="video/mp4" />
+    <source id="ideo" src="nnone" type="video/mp4" />
     <p class="vjs-no-js">
       To view this video please enable JavaScript, and consider upgrading to a
       web browser that
@@ -30,5 +30,17 @@
     height: 100% !important;
     }
   </style>
+  <script>
+     var url_string = window.location.href; //window.location.href
+     var url = new URL(url_string);
+     var c = url.searchParams.get("url");
+     var pre = url.searchParams.get("loading");
+     c1 = "https://drive.google.com/uc?id=" + c
+     c2 = "https://drive.google.com/thumbnail?id=" + c
+     console.log(c1)
+     document.getElementById("ideo").src = c1;
+     document.getElementById("my-video").poster = c2;
+     document.getElementById("my-video").preload = pre;
+  </script>
   <script src="https://vjs.zencdn.net/7.19.2/video.min.js"></script>
 </body>

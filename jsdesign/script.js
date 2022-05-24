@@ -1,66 +1,72 @@
 document.addEventListener('DOMContentLoaded', () => {
-	const source = 'https://v.redd.it/382nptl205p81/HLSPlaylist.m3u8';
-	const video = document.querySelector('video');
-	const defaultOptions = {};
+  var url_string = window.location.href; //window.location.href
+  var url = new URL(url_string);
+  var c = url.searchParams.get("url");
+  var c2 = 'https://v.redd.it/' + c + '/HLSPlaylist.m3u8'
+  console.log(c2)
+  const source = c2;
+  const video = document.querySelector('video');
 
-	if (!Hls.isSupported()) {
-		video.src = source;
-		var player = new Plyr(video, defaultOptions);
-	} else {
-		// For more Hls.js options, see https://github.com/dailymotion/hls.js
-		const hls = new Hls();
-		hls.loadSource(source);
+  const defaultOptions = {};
 
-		// From the m3u8 playlist, hls parses the manifest and returns
-                // all available video qualities. This is important, in this approach,
-    	        // we will have one source on the Plyr player.
-    	       hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
+  if (!Hls.isSupported()) {
+    video.src = source;
+    var player = new Plyr(video, defaultOptions);
+  } else {
+    // For more Hls.js options, see https://github.com/dailymotion/hls.js
+    const hls = new Hls();
+    hls.loadSource(source);
 
-	      	     // Transform available levels into an array of integers (height values).
-	      	    const availableQualities = hls.levels.map((l) => l.height)
-	      	availableQualities.unshift(0) //prepend 0 to quality array
+    // From the m3u8 playlist, hls parses the manifest and returns
+    // all available video qualities. This is important, in this approach,
+    // we will have one source on the Plyr player.
+    hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
 
-	      	    // Add new qualities to option
-		    defaultOptions.quality = {
-		    	default: 0, //Default - AUTO
-		        options: availableQualities,
-		        forced: true,        
-		        onChange: (e) => updateQuality(e),
-		    }
-		    // Add Auto Label 
-		    defaultOptions.i18n = {
-		    	qualityLabel: {
-		    		0: 'Auto',
-		    	},
-		    }
+      // Transform available levels into an array of integers (height values).
+      const availableQualities = hls.levels.map(l => l.height);
+      availableQualities.unshift(0); //prepend 0 to quality array
 
-		    hls.on(Hls.Events.LEVEL_SWITCHED, function (event, data) {
-	          var span = document.querySelector(".plyr__menu__container [data-plyr='quality'][value='0'] span")
-	          if (hls.autoLevelEnabled) {
-	            span.innerHTML = `AUTO (${hls.levels[data.level].height}p)`
-	          } else {
-	            span.innerHTML = `AUTO`
-	          }
-	        })
-    
-             // Initialize new Plyr player with quality options
-		     var player = new Plyr(video, defaultOptions);
-         });	
+      // Add new qualities to option
+      defaultOptions.quality = {
+        default: 0, //Default - AUTO
+        options: availableQualities,
+        forced: true,
+        onChange: e => updateQuality(e) };
 
-	hls.attachMedia(video);
-    	window.hls = hls;		 
+      // Add Auto Label 
+      defaultOptions.i18n = {
+        qualityLabel: {
+          0: 'Auto' } };
+
+
+
+      hls.on(Hls.Events.LEVEL_SWITCHED, function (event, data) {
+        var span = document.querySelector(".plyr__menu__container [data-plyr='quality'][value='0'] span");
+        if (hls.autoLevelEnabled) {
+          span.innerHTML = `AUTO (${hls.levels[data.level].height}p)`;
+        } else {
+          span.innerHTML = `AUTO`;
+        }
+      });
+
+      // Initialize new Plyr player with quality options
+      var player = new Plyr(video, defaultOptions);
+    });
+
+    hls.attachMedia(video);
+    window.hls = hls;
+  }
+
+  function updateQuality(newQuality) {
+    if (newQuality === 0) {
+      window.hls.currentLevel = -1; //Enable AUTO quality if option.value = 0
+    } else {
+      window.hls.levels.forEach((level, levelIndex) => {
+        if (level.height === newQuality) {
+          console.log("Found quality match with " + newQuality);
+          window.hls.currentLevel = levelIndex;
+        }
+      });
     }
-
-    function updateQuality(newQuality) {
-      if (newQuality === 0) {
-        window.hls.currentLevel = -1; //Enable AUTO quality if option.value = 0
-      } else {
-        window.hls.levels.forEach((level, levelIndex) => {
-          if (level.height === newQuality) {
-            console.log("Found quality match with " + newQuality);
-            window.hls.currentLevel = levelIndex;
-          }
-        });
-      }
-    }
+  }
 });

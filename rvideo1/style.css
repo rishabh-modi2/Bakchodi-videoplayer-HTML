@@ -1,3 +1,6 @@
 .plyr {
      height: 90vh; min-height: 90%;
 }
+.plyr__play-large {
+    cursor: pointer;
+}

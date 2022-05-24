@@ -1,9 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-	var url_string = window.location.href; //window.location.href
-       	var url = new URL(url_string);
-       	var c = url.searchParams.get("url");
-  	var c2 = 'https://v.redd.it/' + c + '/HLSPlaylist.m3u8'
-	console.log(c2)
 	const source = 'https://v.redd.it/382nptl205p81/HLSPlaylist.m3u8';
 	const video = document.querySelector('video');
 	const defaultOptions = {};

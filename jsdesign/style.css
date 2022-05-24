@@ -1,5 +1,5 @@
 video {
   /* override other styles to make responsive */
-  width: 100%    !important;
-  height: auto   !important;
+  width: 50%    !important;
+  height: 50%   !important;
 }

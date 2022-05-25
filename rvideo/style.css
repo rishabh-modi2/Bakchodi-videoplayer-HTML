@@ -2,7 +2,7 @@
      height: 97vh; min-height: 90%;
      height: 97vh
 }
-.plyr__play-large {
+.plyr__control--overlaid {
    width: 10vw;
    height: 97vh;
    cursor: pointer;

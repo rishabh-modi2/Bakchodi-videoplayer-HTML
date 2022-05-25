@@ -3,8 +3,8 @@
      height: 97vh
 }
 .plyr__control--overlaid {
-   width: 10vw;
-   height: 10vh;
+   width: 25vw;
+   height: 25vh;
    cursor: pointer;
 }
 video {

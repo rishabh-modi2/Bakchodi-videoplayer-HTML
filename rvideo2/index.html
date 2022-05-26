@@ -36,9 +36,16 @@
 	}
 	.watermark {
 	position: absolute;
-	left: 50%; top: 50%;
+	left: 25%; top: 50%;
 	color: white;
-	animation: 15s moving-watermark infinite;
+	animation-name: example;
+	animation-duration: 10s;
+	}
+	@keyframes example {
+	  0%   {left: 25%; top: 50%;}
+	  25%  {left: 25%; top: 40%;}
+	  50%  {left: 25%; top: 25%;}
+	  100% {left: 25%; top: 10%;}
 	}
   </style>
 </body>

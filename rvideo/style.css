@@ -23,7 +23,7 @@ video::-webkit-media-controls-fullscreen-button
 
 .watermark {
     position: absolute;
-    left: 50%; top: 50%;
+    left: 80%; top: 50%;
     color: white;
     animation: 15s moving-watermark infinite;
 }

@@ -35,11 +35,7 @@
      var url = new URL(url_string);
      var c = url.searchParams.get("url");
      var pre = url.searchParams.get("loading");
-     c1 = "https://drive.google.com/uc?id=" + c
-     c2 = "https://drive.google.com/thumbnail?id=" + c
-     console.log(c1)
      document.getElementById("ideo").src = c1;
-     document.getElementById("my-video").poster = c2;
      document.getElementById("my-video").preload = pre;
   </script>
   <script src="min.js"></script>

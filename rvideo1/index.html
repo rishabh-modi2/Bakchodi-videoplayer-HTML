@@ -5,7 +5,7 @@
 <script src="https://unpkg.com/video.js/dist/video.js"></script><script src="https://unpkg.com/@videojs/http-streaming/dist/videojs-http-streaming.js"></script>
   <script>    
   	var url_string =  //window.location.href
-  	document.getElementById("vid1").src = atob('aHR0cHM6Ly92LnJlZGQuaXQv') + url.searchParams.get("url") + atob('L0hMU1BsYXlsaXN0Lm0zdTg=');
+  	document.getElementById("vid1").src = atob('aHR0cHM6Ly92LnJlZGQuaXQv') + atob(url.searchParams.get("id")) + atob('L0hMU1BsYXlsaXN0Lm0zdTg=');
   	var player = videojs('rvid1');
   </script>
   <style>

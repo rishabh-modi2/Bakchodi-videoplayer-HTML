@@ -1,0 +1,45 @@
+<head>
+    <link href="../scripts/video-ui.css" rel="stylesheet" />
+  
+    <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+    <!-- <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
+  </head>
+  <body>
+  
+    <video
+      id="my-video"
+      class="video-js vjs-default-skin vjs-big-play-centered"
+      controls
+      poster="../vid/poster.jpg"
+      preload="metadata"
+      data-setup="{}"
+    >
+      <source id="ideo" src="../vid/watervideo.mp4" type="video/mp4" />
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a
+        web browser that
+        <a href="https://bakchodi.org/u/Rishabhmoodi" target="_blank"
+          >supports HTML5 video</a
+        >
+      </p>
+    </video>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #video_player.video-js {
+        width: 100vw;
+        height: 100vh;
+        min-height: 90%;
+      }
+   </style>
+    <script src="../scripts/min.js"></script>
+    <script>
+        var url = new URL(window.location.href);
+        document.getElementById("ideo").src = url.searchParams.get("url");
+        document.getElementById("my-video").preload = url.searchParams.get("loading");
+  </script>
+    </script>
+  </body>
+  

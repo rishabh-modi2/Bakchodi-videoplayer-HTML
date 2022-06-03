@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html><head><meta charset=utf-8 /><link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+</head><body><video-js id="rvid1" class="vjs-default-skin vjs-big-play-centered" controls preload="none" ><source id="vid1" src="../vid/watervideo.mp4" type="application/x-mpegURL"></video-js>
+<script src="https://unpkg.com/video.js/dist/video.js"></script><script src="https://unpkg.com/@videojs/http-streaming/dist/videojs-http-streaming.js"></script>
+  <script>    
+  	var url_string =  //window.location.href
+  	document.getElementById("vid1").src = atob('aHR0cHM6Ly92LnJlZGQuaXQv') + url.searchParams.get("url") + atob('L0hMU1BsYXlsaXN0Lm0zdTg=');
+  	var player = videojs('rvid1');
+  </script>
+  <style>
+	  body {
+        margin: 0;
+        padding: 0;
+      }
+      #video_player.video-js {
+        width: 100vw;
+        height: 100vh;
+        min-height: 90%;
+      }
+      video_player.video-js .vjs-current-time,
+      video_player.video-js .vjs-time-divider,
+      video_player.video-js .vjs-duration {
+        display: block !important;
+      }
+  </style>
+</body>
+</html>

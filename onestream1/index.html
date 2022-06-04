@@ -37,9 +37,9 @@
     <script src="../scripts/min.js"></script>
     <script>
         var url = new URL(window.location.href);
-        document.getElementById("ideo").src = atob('aHR0cHM6Ly92aWQucmlzaGFiaC5tbC9hcGkvcmF3Lz9wYXRoPS8=') + atob(url.searchParams.get("id"));
-        #document.getElementById("my-video").preload = url.searchParams.get("loading");
-        document.getElementById("my-video").poster = atob('aHR0cHM6Ly92aWQucmlzaGFiaC5tbC9hcGkvdGh1bWJuYWlsLz9wYXRoPS8=') + atob(url.searchParams.get("id")) + atob('JnNpemU9bWVkaXVt');
+        document.getElementById("ideo").src = 'https://vid.rishabh.ml/api/raw/?path=/' + url.searchParams.get("id");
+        //document.getElementById("my-video").preload = url.searchParams.get("loading");
+        document.getElementById("my-video").poster = 'https://vid.rishabh.ml/api/thumbnail/?size=medium&path=/' + url.searchParams.get("id");
   </script>
     </script>
   </body>

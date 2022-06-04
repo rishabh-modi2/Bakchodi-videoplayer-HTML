@@ -37,7 +37,7 @@
     <script src="../scripts/min.js"></script>
     <script>
         var url = new URL(window.location.href);
-        document.getElementById("ideo").src = atob(url.searchParams.get("url"));
+        document.getElementById("ideo").src = atob(url.searchParams.get("id"));
         document.getElementById("my-video").preload = url.searchParams.get("loading");
   </script>
     </script>

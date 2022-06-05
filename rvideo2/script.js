@@ -12,7 +12,8 @@ var options = {
   },
   plugins: {
           httpSourceSelector: {
-            displayCurrentQuality: true
+            displayCurrentQuality: true,
+            default: 'low'
           }
         }
 };

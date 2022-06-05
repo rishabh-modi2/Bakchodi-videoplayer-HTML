@@ -13,7 +13,6 @@ var options = {
   plugins: {
           httpSourceSelector: {
             displayCurrentQuality: true
-            default: 'auto'
           }
         }
 };

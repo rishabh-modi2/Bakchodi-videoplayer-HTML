@@ -16,4 +16,4 @@ var options = {
 };
 
 var player = videojs("video_player", options);
-player.src(atob("aHR0cHM6Ly92LnJlZGQuaXQv")+((url.searchParams.get("url"))?url.searchParams.get("url"):"vf4k6vipfmo81")+atob("L0hMU1BsYXlsaXN0Lm0zdTg=");
+player.src(atob("aHR0cHM6Ly92LnJlZGQuaXQv")+((url.searchParams.get("url"))?url.searchParams.get("url"):"vf4k6vipfmo81")+atob("L0hMU1BsYXlsaXN0Lm0zdTg="));
